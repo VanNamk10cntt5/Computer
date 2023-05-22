@@ -1,0 +1,123 @@
+class Computer {
+    private String brand;
+    private double price;
+
+    public Computer(String brand, double price) {
+        this.brand = brand;
+        this.price = price;
+    }
+
+    public void displayInfo() {
+        System.out.println("Brand: " + brand);
+        System.out.println("Price: " + price);
+    }
+
+    public void turnOn() {
+        System.out.println("Computer is turning on.");
+    }
+
+    public void turnOff() {
+        System.out.println("Computer is turning off.");
+    }
+}
+
+class Desktop extends Computer {
+    private int power;
+
+    public Desktop(String brand, double price, int power) {
+        super(brand, price);
+        this.power = power;
+    }
+
+    @Override
+    public void displayInfo() {
+        super.displayInfo();
+        System.out.println("Power: " + power + "W");
+    }
+
+    @Override
+    public void turnOn() {
+        System.out.println("Desktop computer is turning on.");
+    }
+
+    @Override
+    public void turnOff() {
+        System.out.println("Desktop computer is turning off.");
+    }
+}
+
+class Laptop extends Computer {
+    private int batteryLife;
+
+    public Laptop(String brand, double price, int batteryLife) {
+        super(brand, price);
+        this.batteryLife = batteryLife;
+    }
+
+    @Override
+    public void displayInfo() {
+        super.displayInfo();
+        System.out.println("Battery Life: " + batteryLife + " hours");
+    }
+
+    @Override
+    public void turnOn() {
+        System.out.println("Laptop is turning on.");
+    }
+
+    @Override
+    public void turnOff() {
+        System.out.println("Laptop is turning off.");
+    }
+}
+
+class Tablet extends Computer {
+    private double screenSize;
+
+    public Tablet(String brand, double price, double screenSize) {
+        super(brand, price);
+        this.screenSize = screenSize;
+    }
+
+    @Override
+    public void displayInfo() {
+        super.displayInfo();
+        System.out.println("Screen Size: " + screenSize + " inches");
+    }
+
+    @Override
+    public void turnOn() {
+        System.out.println("Tablet is turning on.");
+    }
+
+    @Override
+    public void turnOff() {
+        System.out.println("Tablet is turning off.");
+    }
+}
+
+// Sử dụng các lớp
+
+public class Main {
+    public static void main(String[] args) {
+        Desktop desktop = new Desktop("Dell", 1500, 500);
+        Laptop laptop = new Laptop("Lenovo", 1200, 8);
+        Tablet tablet = new Tablet("Samsung", 800, 10);
+
+        desktop.displayInfo();
+        desktop.turnOn();
+        desktop.turnOff();
+
+        System.out.println("----------------------");
+
+        laptop.displayInfo();
+        laptop.turnOn();
+        laptop.turnOff();
+
+        System.out.println("----------------------");
+
+        tablet.displayInfo();
+        tablet.turnOn();
+        tablet.turnOff();
+    }
+}
